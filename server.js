@@ -19,7 +19,14 @@ app.listen(PORT, () => {
 });
 
 app.get("/time", (req, res) => {
+  const indiaTime = new Date().toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    dateStyle: "full",
+    timeStyle: "medium",
+  });
+
   res.json({
-    time: new Date().toISOString(),
+    timezone: "Asia/Kolkata",
+    time: indiaTime,
   });
 });
